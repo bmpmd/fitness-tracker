@@ -23,11 +23,12 @@
             <input  required ngModel name="birthdate" matInput [matDatepicker]="picker" [max]="maxDate">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+           <mat-error>Birthdate is required and must be at least 18 y.o.</mat-error>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <mat-checkbox required color="primary" ngModel name="agree">Agree to Terms and Conditions.</mat-checkbox>
-        
-        <button type="submit" mat-raised-button color="primary">Submit</button>
+        <mat-checkbox required color="primary" ngModel #agree name="agree">Agree to Terms and Conditions.</mat-checkbox>
+        <mat-hint [hidden]="agree.checked" color="warning">Must agree to tos.</mat-hint>
+        <button [disabled]="f.invalid" type="submit" mat-raised-button color="primary">Submit</button>
     </form>
 </section>

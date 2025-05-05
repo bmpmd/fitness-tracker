@@ -12,3 +12,7 @@ mat-form-field{
     width: 300px;
     padding-bottom: 20px;
 }
+
+button{
+    margin-top: 10px;
+}
